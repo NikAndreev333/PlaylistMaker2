@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:paddingStart="@dimen/settingsStartEndPadding"
+        android:paddingTop="@dimen/settingsTopPadding"
+        android:paddingEnd="@dimen/settingsStartEndPadding"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/back_Button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/back"
+            android:backgroundTint="@color/white"
+            app:iconSize="40dp"
+            android:gravity="center"
+            android:contentDescription="null"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/settings"
+            android:textSize="26sp"
+            android:textColor="@color/black"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+
+            />
+
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="460dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="@dimen/settingsStartEndPadding"
+            android:paddingTop="@dimen/settingsTopPadding"
+            android:paddingEnd="@dimen/settingsStartEndPadding"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/settingsLayoutHigh"
+                android:text="@string/dark_theme"
+                android:textSize="@dimen/settingsTextSize"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                />
+
+            <Switch
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="@dimen/settingsStartEndPadding"
+            android:paddingTop="@dimen/settingsTopPadding"
+            android:paddingEnd="@dimen/settingsStartEndPadding"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/settingsLayoutHigh"
+                android:text="@string/app_share"
+                android:textSize="@dimen/settingsTextSize"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                />
+            <ImageView
+                android:layout_width="@dimen/settingsIconSize"
+                android:layout_height="@dimen/settingsIconSize"
+                android:src="@drawable/share"
+                />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="@dimen/settingsStartEndPadding"
+            android:paddingTop="@dimen/settingsTopPadding"
+            android:paddingEnd="@dimen/settingsStartEndPadding"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/settingsLayoutHigh"
+                android:text="@string/support_chat"
+                android:textSize="@dimen/settingsTextSize"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                />
+            <ImageView
+                android:layout_width="@dimen/settingsIconSize"
+                android:layout_height="@dimen/settingsIconSize"
+                android:src="@drawable/support"
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="@dimen/settingsStartEndPadding"
+            android:paddingTop="@dimen/settingsTopPadding"
+            android:paddingEnd="@dimen/settingsStartEndPadding"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/settingsLayoutHigh"
+                android:text="@string/user_agreement"
+                android:textSize="@dimen/settingsTextSize"
+                android:textColor="@color/black"
+                android:gravity="center_vertical"
+                />
+            <ImageView
+                android:layout_width="@dimen/settingsIconSize"
+                android:layout_height="@dimen/settingsIconSize"
+                android:src="@drawable/agreement"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

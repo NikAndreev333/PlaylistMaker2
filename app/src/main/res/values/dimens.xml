@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="mainActText">26sp</dimen>
+    <dimen name="mainActText">22sp</dimen>
     <dimen name="mainButtonCorner">16dp</dimen>
     <dimen name="mainIconSize">26dp</dimen>
     <dimen name="mainIconPadding">8dp</dimen>
-    <dimen name="settingsTextSize">22sp</dimen>
+    <dimen name="settingsTextSize">16sp</dimen>
     <dimen name="settingsHorizontalPadding">16dp</dimen>
     <dimen name="settingsVerticalPadding">10dp</dimen>
     <dimen name="settingsIconSize">24dp</dimen>

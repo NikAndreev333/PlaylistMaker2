@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Base.Theme.PlaylistMaker2"
+    android:background="?attr/colorPrimary"
+    >
+
+
+    <LinearLayout
+        style="@style/settingsLayots"
+        >
+
+        <ImageButton
+            android:id="@+id/back_Button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/back"
+            android:backgroundTint="?attr/colorPrimary"
+            app:iconSize="40dp"
+            app:tint = "?attr/colorOnPrimary"
+            android:gravity="center"
+            android:contentDescription="null"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/settings"
+            style="@style/display_medium_500"
+            android:textSize="26sp"
+            android:textColor="?attr/colorOnPrimary"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            style="@style/settingsLayots"
+            >
+
+            <TextView
+                style="@style/settingsTextview"
+                android:text="@string/dark_theme" />
+
+            <Switch
+                android:id="@+id/darkThemeSwitch"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/settingsLayots"
+            >
+            <TextView
+                style="@style/settingsTextview"
+                android:text="@string/app_share"
+                />
+            <ImageView
+                android:id="@+id/appShareButton"
+                style="@style/settingsImageView"
+                android:src="@drawable/share"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/settingsLayots"
+            >
+            <TextView
+                style="@style/settingsTextview"
+                android:text="@string/support_chat"
+                />
+            <ImageView
+                android:id="@+id/supportButton"
+                style="@style/settingsImageView"
+                android:src="@drawable/support"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/settingsLayots"
+            >
+            <TextView
+                style="@style/settingsTextview"
+                android:text="@string/user_agreement"
+                />
+            <ImageView
+                android:id="@+id/userAgreementButton"
+                style="@style/settingsImageView"
+                android:src="@drawable/agreement"
+               android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+</LinearLayout>

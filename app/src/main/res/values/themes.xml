@@ -3,7 +3,20 @@
     <style name="Base.Theme.PlaylistMaker2" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/YP_White</item>
+        <item name="colorPrimaryVariant">@color/YP_Blue</item>
+        <item name="colorSecondary">@color/YP_Black</item>
+        <item name="colorSecondaryVariant">@color/YP_LightGray</item>
+        <item name="colorOnPrimary">@color/YP_Black</item>
+        <item name="colorOnSecondary">@color/YP_White</item>
+        <item name="android:textColorPrimary">@color/YP_Black</item>
+        <item name="android:textColorSecondary">@color/YP_White</item>
+        <item name="android:colorBackground">@color/YP_LightGray</item>
+        <item name="android:textColorHint">@color/YP_TextGray</item>
+        <item name="colorPrimaryDark">@color/YP_Black</item>
+
     </style>
 
-    <style name="Theme.PlaylistMaker2" parent="Base.Theme.PlaylistMaker2" />
+
+
 </resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <style name="mainActivityButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+       <item name="android:backgroundTint">@color/YP_White</item>
+       <item name="android:textAllCaps">false</item>
+       <item name="android:textColor">@color/YP_Black</item>
+       <item name="android:textSize">@dimen/mainActText</item>
+       <item name="android:foreground">?attr/selectableItemBackground</item>
+       <item name="cornerRadius">@dimen/mainButtonCorner</item>
+       <item name="iconGravity">textStart</item>
+       <item name="iconPadding">@dimen/mainIconPadding</item>
+       <item name="iconSize">@dimen/mainIconSize</item>
+       <item name="iconTint">@color/YP_Background</item>
+       <item name="android:fontFamily">@font/ys_display_medium</item>
+       <item name="android:textFontWeight">500</item>
+       <item name="android:layout_width">match_parent</item>
+       <item name="android:layout_height">0dp</item>
+       <item name="android:layout_marginVertical">10dp</item>
+       <item name="android:layout_weight">1</item>
+       <item name="android:layout_marginHorizontal">20dp</item>
+   </style>
+
+<style name="display_medium_500">
+    <item name="android:fontFamily">@font/ys_display_medium</item>
+    <item name="android:textFontWeight">500</item>
+</style>
+
+    <style name="display_medium_400">
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <style name="settingsLayots">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingHorizontal">@dimen/settingsHorizontalPadding</item>
+        <item name="android:paddingVertical">@dimen/settingsVerticalPadding</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="settingsTextview">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical">10dp</item>
+        <item name="android:textSize">@dimen/settingsTextSize</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <style name="settingsImageView">
+        <item name="android:layout_width">@dimen/settingsIconSize</item>
+        <item name="android:layout_height">@dimen/settingsIconSize</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+
+</resources>

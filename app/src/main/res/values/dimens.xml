@@ -5,8 +5,8 @@
     <dimen name="mainIconSize">26dp</dimen>
     <dimen name="mainIconPadding">8dp</dimen>
     <dimen name="settingsTextSize">22sp</dimen>
-    <dimen name="settingsStartEndPadding">16dp</dimen>
-    <dimen name="settingsTopPadding">10dp</dimen>
+    <dimen name="settingsHorizontalPadding">16dp</dimen>
+    <dimen name="settingsVerticalPadding">10dp</dimen>
     <dimen name="settingsIconSize">24dp</dimen>
     <dimen name="settingsLayoutHigh">48dp</dimen>
 </resources>

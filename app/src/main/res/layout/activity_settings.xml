@@ -4,15 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:theme="@style/Base.Theme.PlaylistMaker2"
+    android:background="?attr/colorPrimary"
+    >
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:paddingStart="@dimen/settingsStartEndPadding"
-        android:paddingTop="@dimen/settingsTopPadding"
-        android:paddingEnd="@dimen/settingsStartEndPadding"
-        android:orientation="horizontal"
+        style="@style/settingsLayots"
         >
 
         <ImageButton
@@ -20,146 +18,82 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/back"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="?attr/colorPrimary"
             app:iconSize="40dp"
+            app:tint = "?attr/colorOnPrimary"
             android:gravity="center"
             android:contentDescription="null"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:text="@string/settings"
+            style="@style/display_medium_500"
             android:textSize="26sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnPrimary"
             android:paddingLeft="10dp"
             android:gravity="center"
-
             />
 
-
-
-
-
-
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginBottom="460dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        >
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingStart="@dimen/settingsStartEndPadding"
-            android:paddingTop="@dimen/settingsTopPadding"
-            android:paddingEnd="@dimen/settingsStartEndPadding"
+            style="@style/settingsLayots"
             >
+
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/settingsLayoutHigh"
-                android:text="@string/dark_theme"
-                android:textSize="@dimen/settingsTextSize"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
-                />
+                style="@style/settingsTextview"
+                android:text="@string/dark_theme" />
 
             <Switch
+                android:id="@+id/darkThemeSwitch"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:gravity="center"
-                />
+                android:layout_gravity="center" />
 
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingStart="@dimen/settingsStartEndPadding"
-            android:paddingTop="@dimen/settingsTopPadding"
-            android:paddingEnd="@dimen/settingsStartEndPadding"
-            android:orientation="horizontal"
-            android:gravity="center"
+            style="@style/settingsLayots"
             >
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/settingsLayoutHigh"
+                style="@style/settingsTextview"
                 android:text="@string/app_share"
-                android:textSize="@dimen/settingsTextSize"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
                 />
             <ImageView
-                android:layout_width="@dimen/settingsIconSize"
-                android:layout_height="@dimen/settingsIconSize"
+                android:id="@+id/appShareButton"
+                style="@style/settingsImageView"
                 android:src="@drawable/share"
                 />
 
-
-
-
-
-
-
-
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingStart="@dimen/settingsStartEndPadding"
-            android:paddingTop="@dimen/settingsTopPadding"
-            android:paddingEnd="@dimen/settingsStartEndPadding"
-            android:gravity="center"
+            style="@style/settingsLayots"
             >
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/settingsLayoutHigh"
+                style="@style/settingsTextview"
                 android:text="@string/support_chat"
-                android:textSize="@dimen/settingsTextSize"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
                 />
             <ImageView
-                android:layout_width="@dimen/settingsIconSize"
-                android:layout_height="@dimen/settingsIconSize"
+                android:id="@+id/supportButton"
+                style="@style/settingsImageView"
                 android:src="@drawable/support"
                 />
 
-
-
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingStart="@dimen/settingsStartEndPadding"
-            android:paddingTop="@dimen/settingsTopPadding"
-            android:paddingEnd="@dimen/settingsStartEndPadding"
-            android:gravity="center"
+            style="@style/settingsLayots"
             >
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/settingsLayoutHigh"
+                style="@style/settingsTextview"
                 android:text="@string/user_agreement"
-                android:textSize="@dimen/settingsTextSize"
-                android:textColor="@color/black"
-                android:gravity="center_vertical"
                 />
             <ImageView
-                android:layout_width="@dimen/settingsIconSize"
-                android:layout_height="@dimen/settingsIconSize"
+                android:id="@+id/userAgreementButton"
+                style="@style/settingsImageView"
                 android:src="@drawable/agreement"
+               android:layout_gravity="center"
                 />
 
-
         </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>

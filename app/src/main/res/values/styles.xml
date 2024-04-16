@@ -61,5 +61,10 @@
         <item name="android:layout_gravity">center</item>
 
     </style>
+    <style name="trackItemView">
+        <item name="fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/settingsTextSize</item>
+    </style>
 
 </resources>

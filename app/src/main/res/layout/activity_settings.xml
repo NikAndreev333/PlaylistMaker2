@@ -91,7 +91,7 @@
             <ImageView
                 android:id="@+id/userAgreementButton"
                 style="@style/settingsImageView"
-                android:src="@drawable/agreement"
+                android:src="@drawable/arrow_forward"
                android:layout_gravity="center"
                 />
 

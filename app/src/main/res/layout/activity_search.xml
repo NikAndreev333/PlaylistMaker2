@@ -71,8 +71,8 @@
             android:textSize="16dp"
             android:background="?attr/android:colorBackground"
             android:focusable="true"
-
-
+            android:imeOptions="actionDone"
+            android:singleLine="true"
             />
 
         <ImageView
@@ -86,21 +86,90 @@
             app:tint="?attr/android:textColorHint"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="@integer/material_motion_duration_long_1">
+        android:layout_weight="@integer/material_motion_duration_long_1"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trackRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:itemCount="5"
-
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/track_item"
-            />
+            tools:itemCount="5"
+            tools:listitem="@layout/track_item" />
+
+        <LinearLayout
+            android:id="@+id/notFoundPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/search_error_light" />
+
+            <TextView
+                style="@style/searchPlaceholderTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/searchError"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/noConnectionPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:src="@drawable/internet_error_light" />
+
+            <TextView
+                style="@style/searchPlaceholderTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/connectionError" />
+
+            <TextView
+                style="@style/searchPlaceholderTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="@string/loadError" />
+
+            <Button
+                android:id="@+id/updateButton"
+                style="@style/display_medium_500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="?attr/colorSecondary"
+                android:padding="6dp"
+                android:text="@string/update"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="14dp"
+                app:cornerRadius="54dp" />
+        </LinearLayout>
     </LinearLayout>
 
 

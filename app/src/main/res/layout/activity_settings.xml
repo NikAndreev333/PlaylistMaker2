@@ -30,7 +30,7 @@
             android:layout_height="48dp"
             android:text="@string/settings"
             style="@style/display_medium_500"
-            android:textSize="26sp"
+            android:textSize="22sp"
             android:textColor="?attr/colorOnPrimary"
             android:paddingLeft="10dp"
             android:gravity="center"
@@ -91,7 +91,7 @@
             <ImageView
                 android:id="@+id/userAgreementButton"
                 style="@style/settingsImageView"
-                android:src="@drawable/agreement"
+                android:src="@drawable/arrow_forward"
                android:layout_gravity="center"
                 />
 

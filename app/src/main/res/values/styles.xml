@@ -29,6 +29,10 @@
         <item name="android:fontFamily">@font/ys_display_medium</item>
         <item name="android:textFontWeight">400</item>
     </style>
+    <style name="regular_400">
+        <item name="fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
 
     <style name="settingsLayots">
         <item name="android:layout_width">match_parent</item>
@@ -56,6 +60,11 @@
         <item name="android:layout_height">@dimen/settingsIconSize</item>
         <item name="android:layout_gravity">center</item>
 
+    </style>
+    <style name="trackItemView">
+        <item name="fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">@dimen/settingsTextSize</item>
     </style>
 
 </resources>

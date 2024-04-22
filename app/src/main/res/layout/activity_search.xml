@@ -69,10 +69,12 @@
             android:lines="1"
             style="@style/regular_400"
             android:textSize="16dp"
+            android:textColor="@color/YP_Black"
             android:background="?attr/android:colorBackground"
             android:focusable="true"
             android:imeOptions="actionDone"
             android:singleLine="true"
+            android:textCursorDrawable="@drawable/search_cursor"
             />
 
         <ImageView

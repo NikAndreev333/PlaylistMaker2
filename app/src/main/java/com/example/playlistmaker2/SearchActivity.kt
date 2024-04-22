@@ -13,7 +13,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -71,6 +70,8 @@ class SearchActivity: AppCompatActivity() {
             editText.setText("")
             trackList.clear()
             trackRV.isVisible = false
+            notFoundPlaceholder.isVisible = false
+            noConnectionPlaceholder.isVisible = false
             trackListAdapter.notifyDataSetChanged()
             hideKeyboard()
         }
@@ -129,13 +130,6 @@ class SearchActivity: AppCompatActivity() {
                         trackList.clear()
                         trackRV.isVisible = true
                         trackList.addAll(response.body()?.results!!)
-                        if (trackList.isNotEmpty()) {
-                            val text = "Пора покормить кота!"
-                            val duration = Toast.LENGTH_SHORT
-
-                            val toast = Toast.makeText(applicationContext, text, duration)
-                            toast.show()
-                        }
                         trackListAdapter.notifyDataSetChanged()
 
 

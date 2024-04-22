@@ -119,6 +119,7 @@ class SearchActivity: AppCompatActivity() {
     }
     private fun showNoConnectionPlaceholder () {
         noConnectionPlaceholder.isVisible = true
+        notFoundPlaceholder.isVisible = false
     }
     private fun trackSearch() {
         iTunesAPI.search(editText.text.toString()).enqueue(object : Callback<TrackResponse> {

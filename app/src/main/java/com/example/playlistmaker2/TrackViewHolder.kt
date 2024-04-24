@@ -5,10 +5,11 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val trackName: TextView = itemView.findViewById(R.id.trackName)
@@ -18,15 +19,15 @@ class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind (item : Track) {
         Glide.with(itemView)
             .load(item.artworkUrl100)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.internet_error_dark)
             .centerCrop()
             .transform(RoundedCorners(dpToPx(2.0f, itemView.context)))
             .into(trackImage)
         trackName.text = item.trackName
         artistName.text = item.artistName
-        trackTime.text = item.trackTime
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime.toLong())
     }
-    fun dpToPx(dp: Float, context: Context): Int {
+    private fun dpToPx(dp: Float, context: Context): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             dp,

@@ -25,7 +25,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SearchActivity: AppCompatActivity() {
+const val TRACK_HISTORY_PREFS = "track_history_prefs"
+class SearchActivity: AppCompatActivity(), Listner {
     private lateinit var editText: EditText
     private lateinit var clearButton: ImageView
     private lateinit var trackList: ArrayList<Track>
@@ -34,6 +35,16 @@ class SearchActivity: AppCompatActivity() {
     private lateinit var notFoundPlaceholder: LinearLayout
     private lateinit var noConnectionPlaceholder: LinearLayout
     private lateinit var updateButton: Button
+
+    private lateinit var trackHistoryList:ArrayList<Track>
+    private lateinit var trackHistoryAdapter: TrackAdapter
+    private lateinit var historyViewGroup: LinearLayout
+    private lateinit var trackHistoryRV: RecyclerView
+    private lateinit var clearHistoryButton: Button
+    private lateinit var searchHistory: SearchHistory
+
+
+
     private var request: String? = SEARCH_STRING
     private val baseItunesURL = "https://itunes.apple.com"
     private val retrofit = Retrofit.Builder()
@@ -42,6 +53,8 @@ class SearchActivity: AppCompatActivity() {
         .build()
 
     private val iTunesAPI = retrofit.create(ITunesAPI::class.java)
+
+
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +69,34 @@ class SearchActivity: AppCompatActivity() {
         updateButton = findViewById<Button>(R.id.updateButton)
         trackRV = findViewById<RecyclerView>(R.id.trackRV)
         trackList = arrayListOf()
-        trackListAdapter = TrackAdapter(trackList)
+        trackListAdapter = TrackAdapter(trackList, this)
+
+        trackHistoryRV = findViewById<RecyclerView>(R.id.trackHistoryRV)
+        clearHistoryButton = findViewById<Button>(R.id.clearHistoryButton)
+        historyViewGroup = findViewById<LinearLayout>(R.id.historyViewGroup)
+        trackHistoryList = arrayListOf()
+
+
+
+        val sharedPreferences = getSharedPreferences(TRACK_HISTORY_PREFS, MODE_PRIVATE)
+        searchHistory = SearchHistory(sharedPreferences)
+
+        trackHistoryAdapter = TrackAdapter(searchHistory.searchedTrackHistory, this)
+
+        trackHistoryRV.layoutManager = LinearLayoutManager(this)
+        trackHistoryRV.adapter = trackHistoryAdapter
+
+        clearHistoryButton.setOnClickListener {
+            searchHistory.clearHistory()
+            trackHistoryAdapter.notifyDataSetChanged()
+            historyViewGroup.isVisible = false
+        }
+
+
+
+        editText.setOnFocusChangeListener { view, hasFocus ->
+            historyViewGroup.visibility = if (hasFocus && editText.text.isEmpty() && searchHistory.searchedTrackHistory.isNotEmpty())  View.VISIBLE else View.GONE
+        }
 
 
 
@@ -82,6 +122,7 @@ class SearchActivity: AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = if (s.isNullOrEmpty()) View.GONE else View.VISIBLE
+                historyViewGroup.visibility = if (editText.hasFocus() && s?.isEmpty() == true) View.VISIBLE else View.GONE
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -95,8 +136,14 @@ class SearchActivity: AppCompatActivity() {
 
 
         trackRV.layoutManager = LinearLayoutManager(this)
-
         trackRV.adapter = trackListAdapter
+
+
+
+
+
+
+
 
         editText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId ==     EditorInfo.IME_ACTION_DONE) {
@@ -165,4 +212,14 @@ class SearchActivity: AppCompatActivity() {
         const val SEARCH_STRING = ""
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onClick(track: Track) {
+        searchHistory.saveTrack(track)
+        trackHistoryAdapter.notifyDataSetChanged()
+    }
+
+}
+interface Listner {
+    fun onClick(track: Track) {
+    }
 }

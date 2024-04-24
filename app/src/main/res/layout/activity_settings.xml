@@ -42,15 +42,16 @@
             style="@style/settingsLayots"
             >
 
-            <TextView
-                style="@style/settingsTextview"
-                android:text="@string/dark_theme" />
 
-            <Switch
-                android:id="@+id/darkThemeSwitch"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center" />
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeSwitcher"
+                style="@style/settingsTextview"
+                android:text="@string/dark_theme"
+                android:layout_gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:thumbTint="@color/YP_TextGray"
+                app:trackTint="@color/YP_LightGray"/>
 
         </LinearLayout>
         <LinearLayout

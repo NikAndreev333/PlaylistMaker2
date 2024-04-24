@@ -16,7 +16,7 @@ class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val artistName: TextView = itemView.findViewById(R.id.artistName)
     private val trackTime: TextView  = itemView.findViewById(R.id.trackTime)
     private val trackImage: ImageView = itemView.findViewById(R.id.trackImage)
-    fun bind (item : Track) {
+    fun bind (item : Track, listner: Listner) {
         Glide.with(itemView)
             .load(item.artworkUrl100)
             .placeholder(R.drawable.internet_error_dark)
@@ -26,6 +26,10 @@ class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         trackName.text = item.trackName
         artistName.text = item.artistName
         trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime.toLong())
+
+        itemView.setOnClickListener {
+            listner.onClick(item)
+        }
     }
     private fun dpToPx(dp: Float, context: Context): Int {
         return TypedValue.applyDimension(

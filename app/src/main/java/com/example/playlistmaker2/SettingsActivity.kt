@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity: AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -26,6 +28,15 @@ class SettingsActivity: AppCompatActivity() {
         agreementButton.setOnClickListener{
             openUserAgreement()
         }
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.themeSwitcher)
+        if ((applicationContext as App).darkTheme) {
+            themeSwitcher.setChecked(true);
+        }
+
+        themeSwitcher.setOnCheckedChangeListener { switcher, checked ->
+            (applicationContext as App).switchTheme(checked)
+        }
+
 
     }
     private fun openUserAgreement () {

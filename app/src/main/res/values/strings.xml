@@ -17,5 +17,7 @@
     <string name="connectionError">Проблемы со связью</string>
     <string name="loadError">Загрузка не удалась. Проверьте\n подключение к интернету</string>
     <string name="update">Обновить</string>
+    <string name="searchHistory">Вы искали</string>
+    <string name="clearHistory">Очистить историю</string>
 
 </resources>

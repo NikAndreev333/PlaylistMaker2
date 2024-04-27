@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:layout_margin="8dp"
+    android:layout_margin="4dp"
     android:theme="@style/Base.Theme.PlaylistMaker2"
     android:background="?attr/colorPrimary">
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_height="45dp"
         android:id="@+id/trackImage"
         android:layout_gravity="center"
-        android:src="@drawable/internet_error_light"
+        android:src="@drawable/placeholder"
         android:layout_margin="8dp"
         android:background="?attr/colorPrimary"
         />

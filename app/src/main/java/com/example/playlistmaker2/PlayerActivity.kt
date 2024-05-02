@@ -25,7 +25,9 @@ class PlayerActivity(): AppCompatActivity() {
     var trackGenre = findViewById<TextView>(R.id.trackGenre)
     var trackCountry = findViewById<TextView>(R.id.trackCountry)
 
-
+    private companion object {
+        const val TRACK_KEY = "track"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,28 +38,26 @@ class PlayerActivity(): AppCompatActivity() {
         backButton.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-        val json:String? = intent.getStringExtra(PLAYLIST_KEY)
-        val clickedTrack: Track = Gson().fromJson(json, Track::class.java)
-        trackBind(clickedTrack)
+        val json = intent?.getStringExtra(TRACK_KEY)
+       val clickedTrack = Gson().fromJson(json, Track::class.java)
 
 
-    }
-    private fun trackBind(track: Track) {
-        val url = track?.artworkUrl100?.replaceAfterLast('/', "512x512bb.jpg")
+        val url = clickedTrack?.artworkUrl100?.replaceAfterLast('/', "512x512bb.jpg")
         Glide.with(this)
             .load(url)
             .placeholder(R.drawable.placeholder)
             .fitCenter()
             .transform(RoundedCorners(dpToPx(8f, this)))
             .into(trackPoster)
-        trackAlbumName.text = track.collectionName
-        artistName.text = track.artistName
-        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(track.trackTime)
-        trackAlbum.text= track.collectionName
-        trackYear.text = track.releaseDate
-        trackGenre.text = track.primaryGenreName
-        trackCountry.text = track.country
+        trackAlbumName.text = clickedTrack?.collectionName
+        artistName.text = clickedTrack?.artistName
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(clickedTrack?.trackTime)
+        trackAlbum.text= clickedTrack?.collectionName
+        trackYear.text = clickedTrack?.releaseDate
+        trackGenre.text = clickedTrack?.primaryGenreName
+        trackCountry.text = clickedTrack?.country
     }
+
     private fun dpToPx(dp: Float, context: Context): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

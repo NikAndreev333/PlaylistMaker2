@@ -23,9 +23,9 @@ class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
             .centerCrop()
             .transform(RoundedCorners(dpToPx(2.0f, itemView.context)))
             .into(trackImage)
-        trackName.text = item.trackName
-        artistName.text = item.artistName
-        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime.toLong())
+        trackName.text = item?.trackName
+        artistName.text = item?.artistName
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime?.toLong())
 
         itemView.setOnClickListener {
             listner.onClick(item)

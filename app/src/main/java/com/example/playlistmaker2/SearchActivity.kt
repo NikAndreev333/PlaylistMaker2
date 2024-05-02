@@ -29,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val TRACK_HISTORY_PREFS = "track_history_prefs"
 const val PLAYLIST_KEY = "playlist_key"
+const val TRACK_KEY = "track"
 class SearchActivity: AppCompatActivity(), Listner {
     private lateinit var editText: EditText
     private lateinit var clearButton: ImageView
@@ -219,14 +220,12 @@ class SearchActivity: AppCompatActivity(), Listner {
     override fun onClick(track: Track) {
         searchHistory.saveTrack(track)
         trackHistoryAdapter.notifyDataSetChanged()
-        startPlayerActivity(track)
-    }
-    private fun startPlayerActivity(track: Track) {
         val json = Gson().toJson(track)
-        val intent = Intent(this, PlayerActivity::class.java)
-        intent.putExtra(PLAYLIST_KEY, json)
-        startActivity(intent)
+        val player = Intent(this, PlayerActivity::class.java)
+        player.putExtra(TRACK_KEY, json)
+        startActivity(player)
     }
+
 
 }
 interface Listner {

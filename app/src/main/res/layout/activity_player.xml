@@ -99,8 +99,6 @@ android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="@id/playButton"
         app:layout_constraintEnd_toStartOf="@id/right_border"
         android:backgroundTint="?attr/colorPrimary"
-        android:background="@null"
-
         />
 
     <TextView

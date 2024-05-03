@@ -15,15 +15,15 @@ import java.util.Locale
 
 class PlayerActivity(): AppCompatActivity() {
 
-    var trackPoster = findViewById<ImageView> (R.id.trackPoster)
-    var trackAlbumName = findViewById<TextView>(R.id.trackAlbumName)
-    var artistName = findViewById<TextView>(R.id.artist_name)
-    var timer = findViewById<TextView>(R.id.timer)
-    var trackTime = findViewById<TextView>(R.id.trackTime)
-    var trackAlbum = findViewById<TextView>(R.id.trackAlbum)
-    var trackYear = findViewById<TextView>(R.id.trackYear)
-    var trackGenre = findViewById<TextView>(R.id.trackGenre)
-    var trackCountry = findViewById<TextView>(R.id.trackCountry)
+    private lateinit var trackPoster: ImageView
+    private lateinit var trackAlbumName: TextView
+    private lateinit var artistName: TextView
+    private lateinit var timer: TextView
+    private lateinit var trackTime : TextView
+    private lateinit var trackAlbum : TextView
+    private lateinit var trackYear : TextView
+    private lateinit var trackGenre : TextView
+    private lateinit var trackCountry : TextView
 
     private companion object {
         const val TRACK_KEY = "track"
@@ -38,6 +38,17 @@ class PlayerActivity(): AppCompatActivity() {
         backButton.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+
+        trackPoster = findViewById<ImageView> (R.id.trackPoster)
+         trackAlbumName = findViewById<TextView>(R.id.trackAlbumName)
+         artistName = findViewById<TextView>(R.id.artist_name)
+         timer = findViewById<TextView>(R.id.timer)
+         trackTime = findViewById<TextView>(R.id.trackTime)
+         trackAlbum = findViewById<TextView>(R.id.trackAlbum)
+         trackYear = findViewById<TextView>(R.id.trackYear)
+         trackGenre = findViewById<TextView>(R.id.trackGenre)
+         trackCountry = findViewById<TextView>(R.id.trackCountry)
+
         val json = intent?.getStringExtra(TRACK_KEY)
        val clickedTrack = Gson().fromJson(json, Track::class.java)
 
@@ -49,11 +60,13 @@ class PlayerActivity(): AppCompatActivity() {
             .fitCenter()
             .transform(RoundedCorners(dpToPx(8f, this)))
             .into(trackPoster)
+
+
         trackAlbumName.text = clickedTrack?.collectionName
         artistName.text = clickedTrack?.artistName
-        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(clickedTrack?.trackTime)
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(clickedTrack?.trackTime?.toLong())
         trackAlbum.text= clickedTrack?.collectionName
-        trackYear.text = clickedTrack?.releaseDate
+        trackYear.text = clickedTrack?.releaseDate?.substring(0, 4)
         trackGenre.text = clickedTrack?.primaryGenreName
         trackCountry.text = clickedTrack?.country
     }

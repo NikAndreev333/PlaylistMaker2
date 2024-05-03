@@ -116,6 +116,7 @@ class SearchActivity: AppCompatActivity(), Listner {
             trackRV.isVisible = false
             notFoundPlaceholder.isVisible = false
             noConnectionPlaceholder.isVisible = false
+            historyViewGroup.isVisible = false
             trackListAdapter.notifyDataSetChanged()
             hideKeyboard()
         }

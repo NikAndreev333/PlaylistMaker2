@@ -29,7 +29,6 @@ class PlayerActivity(): AppCompatActivity() {
         const val TRACK_KEY = "track"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)

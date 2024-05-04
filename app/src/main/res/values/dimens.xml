@@ -9,4 +9,9 @@
     <dimen name="settingsVerticalPadding">10dp</dimen>
     <dimen name="settingsIconSize">24dp</dimen>
     <dimen name="settingsLayoutHigh">48dp</dimen>
+    <dimen name="dim4">4dp</dimen>
+    <dimen name="dim16">16dp</dimen>
+    <dimen name="dim12">12dp</dimen>
+    <dimen name="dim24">24dp</dimen>
+    <dimen name="dim28">28dp</dimen>
 </resources>

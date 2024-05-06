@@ -56,7 +56,7 @@ class PlayerActivity(): AppCompatActivity() {
         Glide.with(this)
             .load(url)
             .placeholder(R.drawable.placeholder)
-            .fitCenter()
+            .centerCrop()
             .transform(RoundedCorners(dpToPx(8f, this)))
             .into(trackPoster)
 

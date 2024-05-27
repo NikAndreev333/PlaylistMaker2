@@ -23,12 +23,7 @@ class SearchHistory (private val sharedPreferences: SharedPreferences) {
     }
 
     fun saveTrack(track: Track,) {
-        for (i in searchedTrackHistory ) {
-            if (track.trackId == i.trackId) {
-                searchedTrackHistory.remove(i)
-
-            }
-        }
+        searchedTrackHistory.removeIf {it.trackId == track.trackId}
         if (searchedTrackHistory.size >= trackHistorySize) {
             searchedTrackHistory.removeAt(trackHistorySize - 1)
         }

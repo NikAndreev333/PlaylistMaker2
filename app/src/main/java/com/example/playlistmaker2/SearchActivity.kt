@@ -2,9 +2,11 @@ package com.example.playlistmaker2
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.playlistmaker2.R.id
 import com.example.playlistmaker2.R.layout
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +29,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 const val TRACK_HISTORY_PREFS = "track_history_prefs"
+const val PLAYLIST_KEY = "playlist_key"
+const val TRACK_KEY = "track"
 class SearchActivity: AppCompatActivity(), Listner {
     private lateinit var editText: EditText
     private lateinit var clearButton: ImageView
@@ -112,6 +117,7 @@ class SearchActivity: AppCompatActivity(), Listner {
             trackRV.isVisible = false
             notFoundPlaceholder.isVisible = false
             noConnectionPlaceholder.isVisible = false
+            historyViewGroup.isVisible = false
             trackListAdapter.notifyDataSetChanged()
             hideKeyboard()
         }
@@ -215,8 +221,14 @@ class SearchActivity: AppCompatActivity(), Listner {
     @SuppressLint("NotifyDataSetChanged")
     override fun onClick(track: Track) {
         searchHistory.saveTrack(track)
+        Log.d("test", "test fun")
         trackHistoryAdapter.notifyDataSetChanged()
+        val json = Gson().toJson(track)
+        val player = Intent(this, PlayerActivity::class.java)
+        player.putExtra(TRACK_KEY, json)
+        startActivity(player)
     }
+
 
 }
 interface Listner {

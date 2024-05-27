@@ -19,13 +19,13 @@ class TrackViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind (item : Track, listner: Listner) {
         Glide.with(itemView)
             .load(item.artworkUrl100)
-            .placeholder(R.drawable.internet_error_dark)
+            .placeholder(R.drawable.placeholder)
             .centerCrop()
             .transform(RoundedCorners(dpToPx(2.0f, itemView.context)))
             .into(trackImage)
-        trackName.text = item.trackName
-        artistName.text = item.artistName
-        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime.toLong())
+        trackName.text = item?.trackName
+        artistName.text = item?.artistName
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(item.trackTime?.toLong())
 
         itemView.setOnClickListener {
             listner.onClick(item)

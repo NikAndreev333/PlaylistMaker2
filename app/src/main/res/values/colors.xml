@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="YP_Black">#FF000000</color>
+    <color name="YP_Black">#1A1B22</color>
+    <color name="Black">#FF000000</color>
     <color name="YP_White">#FFFFFFFF</color>
     <color name="YP_TextGray">#AEAFB4</color>
     <color name="YP_LightGray">#E6E8EB</color>

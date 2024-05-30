@@ -24,5 +24,6 @@
     <string name="release_date">Год</string>
     <string name="genre">Жанр</string>
     <string name="country">Страна</string>
+    <string name="trackTime">00:00</string>
 
 </resources>

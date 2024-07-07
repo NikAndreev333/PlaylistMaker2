@@ -1,7 +1,6 @@
-package com.example.playlistmaker2
+package presentation
 
 import android.content.Context
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,7 +11,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.google.gson.Gson
+import com.example.playlistmaker2.Creator
+import com.example.playlistmaker2.R
+import domain.model.PlayerState
+import domain.model.Track
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -30,25 +32,20 @@ class PlayerActivity(): AppCompatActivity() {
     private lateinit var clickedTrack : Track
     private lateinit var playButton: ImageButton
 
-    private val mediaPlayer = MediaPlayer()
-    private var playerState = STATE_DEFAULT
     private val handler = Handler(Looper.getMainLooper())
 
 
-    private companion object {
+    companion object {
         const val TRACK_KEY = "track"
-
-        private const val STATE_DEFAULT = 0
-        private const val STATE_PREPARED = 1
-        private const val STATE_PLAYING = 2
-        private const val STATE_PAUSED = 3
         private const val TIME_DELAY = 400L
-
     }
+
+    private val playerInteractor = Creator.providePlayerInteractor()
+    private var playerState = playerInteractor.getCurrentState()
 
     private val trackTimer = object : Runnable {
         override fun run() {
-            val time = SimpleDateFormat("mm:ss", Locale.getDefault()).format(mediaPlayer.currentPosition)
+            val time = SimpleDateFormat("mm:ss", Locale.getDefault()).format(playerInteractor.getCurrentTime())
             timer.text = time
             handler.postDelayed(this, TIME_DELAY)
         }
@@ -76,8 +73,8 @@ class PlayerActivity(): AppCompatActivity() {
          trackCountry = findViewById<TextView>(R.id.trackCountry)
          playButton = findViewById<ImageButton>(R.id.playButton)
 
-        val json = intent?.getStringExtra(TRACK_KEY)
-        clickedTrack = Gson().fromJson(json, Track::class.java)
+
+        clickedTrack = playerInteractor.getCurrentTrack(intent)
 
 
         val url = clickedTrack?.artworkUrl100?.replaceAfterLast('/', "512x512bb.jpg")
@@ -100,58 +97,46 @@ class PlayerActivity(): AppCompatActivity() {
         preparePlayer()
 
         playButton.setOnClickListener {
-            playbackControl()
+            playbackControl(playerInteractor.getCurrentState())
         }
     }
 
     override fun onPause() {
         super.onPause()
-        pause()
+        playerInteractor.pausePlayer()
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
+        playerInteractor.release()
     }
 
-    private fun playbackControl() {
-        when(playerState) {
-            STATE_PLAYING -> {
-                pause()
-            }
-            STATE_PREPARED, STATE_PAUSED -> {
-                startPlayer()
-            }
+    private fun playbackControl(state: PlayerState) {
+        when(state) {
+            PlayerState.STATE_DEFAULT -> {}
+            PlayerState.STATE_PREPARED ->startPlayer()
+            PlayerState.STATE_PLAYING -> pausePlayer()
+            PlayerState.STATE_PAUSED -> startPlayer()
         }
     }
 
     private fun preparePlayer() {
-        mediaPlayer.setDataSource(clickedTrack?.previewUrl)
-        mediaPlayer.prepareAsync()
-        mediaPlayer.setOnPreparedListener {
-
-            playerState = STATE_PREPARED
-        }
-        mediaPlayer.setOnCompletionListener {
-            playerState = STATE_PREPARED
+        playerInteractor.preparePlayer(clickedTrack.previewUrl)
             handler?.removeCallbacksAndMessages(null)
             timer.text = getString(R.string.trackTime)
             playButton.setImageResource(R.drawable.play)
-        }
     }
 
     private fun startPlayer() {
-        mediaPlayer.start()
+        playerInteractor.startPlayer()
         playButton.setImageResource(R.drawable.pause)
-        playerState = STATE_PLAYING
         handler?.post(trackTimer)
     }
 
-    private fun pause() {
-        mediaPlayer.pause()
+    private fun pausePlayer() {
+        playerInteractor.pausePlayer()
         playButton.setImageResource(R.drawable.play)
-        playerState = STATE_PAUSED
         handler?.removeCallbacksAndMessages(null)
     }
 
@@ -163,5 +148,6 @@ class PlayerActivity(): AppCompatActivity() {
         ).toInt()
     }
 }
+
 
 

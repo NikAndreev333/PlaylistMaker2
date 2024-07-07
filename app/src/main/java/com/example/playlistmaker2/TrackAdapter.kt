@@ -3,6 +3,7 @@ package com.example.playlistmaker2
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import domain.model.Track
 
 class TrackAdapter (private val trackList: ArrayList<Track>, val listner: Listner) : RecyclerView.Adapter<TrackViewHolder>() {
 

@@ -1,4 +1,4 @@
-package presentation
+package com.example.playlistmaker2.presentation.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -13,8 +13,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.playlistmaker2.Creator
 import com.example.playlistmaker2.R
-import domain.model.PlayerState
-import domain.model.Track
+import com.example.playlistmaker2.domain.model.PlayerState
+import com.example.playlistmaker2.domain.model.Track
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -73,8 +74,8 @@ class PlayerActivity(): AppCompatActivity() {
          trackCountry = findViewById<TextView>(R.id.trackCountry)
          playButton = findViewById<ImageButton>(R.id.playButton)
 
-
-        clickedTrack = playerInteractor.getCurrentTrack(intent)
+        val json = intent?.getStringExtra(PlayerActivity.TRACK_KEY)
+        clickedTrack = Gson().fromJson(json, Track::class.java)
 
 
         val url = clickedTrack?.artworkUrl100?.replaceAfterLast('/', "512x512bb.jpg")
@@ -103,7 +104,7 @@ class PlayerActivity(): AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        playerInteractor.pausePlayer()
+        pausePlayer()
 
     }
 

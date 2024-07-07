@@ -1,10 +1,10 @@
 package com.example.playlistmaker2
 
 import android.media.MediaPlayer
-import data.PlayerRepositoryImpl
-import domain.impl.PlayerInteractorImpl
-import domain.repository.PlayerInteractor
-import domain.repository.PlayerRepository
+import com.example.playlistmaker2.data.PlayerRepositoryImpl
+import com.example.playlistmaker2.domain.impl.PlayerInteractorImpl
+import com.example.playlistmaker2.domain.api.PlayerInteractor
+import com.example.playlistmaker2.domain.api.PlayerRepository
 
 object Creator {
     private fun providePlayerRepository() : PlayerRepository {

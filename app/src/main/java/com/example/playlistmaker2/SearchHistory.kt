@@ -2,7 +2,7 @@ package com.example.playlistmaker2
 
 import android.content.SharedPreferences
 import com.google.gson.Gson
-import domain.model.Track
+import com.example.playlistmaker2.domain.model.Track
 
 
 const val TRACK_HISTORY_KEY = "track_history_key"

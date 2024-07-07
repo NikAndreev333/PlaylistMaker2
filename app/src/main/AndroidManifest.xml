@@ -40,7 +40,7 @@
             android:name=".LibraryActivity"
             android:exported="false"/>
         <activity
-            android:name="presentation.PlayerActivity"
+            android:name=".presentation.ui.PlayerActivity"
             android:exported="false"/>
 
     </application>

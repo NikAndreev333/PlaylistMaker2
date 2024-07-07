@@ -1,12 +1,8 @@
-package data
+package com.example.playlistmaker2.data
 
-import android.content.Intent
 import android.media.MediaPlayer
-import com.google.gson.Gson
-import domain.model.PlayerState
-import domain.model.Track
-import domain.repository.PlayerRepository
-import presentation.PlayerActivity
+import com.example.playlistmaker2.domain.api.PlayerRepository
+import com.example.playlistmaker2.domain.model.PlayerState
 
 class PlayerRepositoryImpl (private val mediaPlayer: MediaPlayer) : PlayerRepository {
 
@@ -43,11 +39,6 @@ class PlayerRepositoryImpl (private val mediaPlayer: MediaPlayer) : PlayerReposi
 
     override fun getCurrentTime() : Int{
         return mediaPlayer.currentPosition
-    }
-
-    override fun getCurrentTrack(intent: Intent): Track {
-        val json = intent?.getStringExtra(PlayerActivity.TRACK_KEY)
-        return Gson().fromJson(json, Track::class.java)
     }
 
     override fun getCurrentState(): PlayerState {

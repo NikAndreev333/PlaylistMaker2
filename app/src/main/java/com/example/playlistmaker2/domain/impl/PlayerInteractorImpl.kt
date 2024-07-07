@@ -1,10 +1,8 @@
-package domain.impl
+package com.example.playlistmaker2.domain.impl
 
-import android.content.Intent
-import domain.model.PlayerState
-import domain.model.Track
-import domain.repository.PlayerInteractor
-import domain.repository.PlayerRepository
+import com.example.playlistmaker2.domain.api.PlayerInteractor
+import com.example.playlistmaker2.domain.api.PlayerRepository
+import com.example.playlistmaker2.domain.model.PlayerState
 
 class PlayerInteractorImpl (private val playerRepository: PlayerRepository) : PlayerInteractor {
     override fun pausePlayer() {
@@ -27,9 +25,6 @@ class PlayerInteractorImpl (private val playerRepository: PlayerRepository) : Pl
          return playerRepository.getCurrentTime()
     }
 
-    override fun getCurrentTrack(intent: Intent): Track {
-        return playerRepository.getCurrentTrack(intent)
-    }
 
     override fun getCurrentState(): PlayerState {
         return playerRepository.getCurrentState()

@@ -1,8 +1,6 @@
-package domain.repository
+package com.example.playlistmaker2.domain.api
 
-import android.content.Intent
-import domain.model.PlayerState
-import domain.model.Track
+import com.example.playlistmaker2.domain.model.PlayerState
 
 interface PlayerInteractor {
     fun preparePlayer(url: String)
@@ -10,6 +8,5 @@ interface PlayerInteractor {
     fun pausePlayer()
     fun release()
     fun getCurrentTime() : Int
-    fun getCurrentTrack(intent: Intent) : Track
     fun getCurrentState(): PlayerState
 }

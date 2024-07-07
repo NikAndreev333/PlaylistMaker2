@@ -24,8 +24,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.playlistmaker2.R.id
 import com.example.playlistmaker2.R.layout
 import com.google.gson.Gson
-import domain.model.Track
-import presentation.PlayerActivity
+import com.example.playlistmaker2.domain.model.Track
+import com.example.playlistmaker2.presentation.ui.PlayerActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

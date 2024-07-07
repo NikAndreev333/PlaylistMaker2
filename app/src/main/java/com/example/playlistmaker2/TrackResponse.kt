@@ -1,6 +1,6 @@
 package com.example.playlistmaker2
 
-import domain.model.Track
+import com.example.playlistmaker2.domain.model.Track
 
 data class TrackResponse(val resultCount: Int, val results: ArrayList<Track> ) {
 
